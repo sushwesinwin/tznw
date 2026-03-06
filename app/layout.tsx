@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Inter, Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,8 +13,14 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 });
 
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-great-vibes",
+});
+
 export const metadata: Metadata = {
-  title: "Official Portfolio | Presenter & Actress",
+  title: "thazin | Presenter & Actress",
   description: "Professional portfolio and booking site for TV Presence, Commercials, and Events.",
 };
 
@@ -25,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
+      <body className={`${inter.variable} ${cormorant.variable} ${greatVibes.variable} antialiased`}>
         {children}
       </body>
     </html>
