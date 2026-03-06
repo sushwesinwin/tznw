@@ -112,15 +112,15 @@ export default function Hero() {
                 </section>
             </GlareHover>
 
-            {/* Sticky Social Icons — md+ only (mobile: inside Navbar drawer) */}
-            <div className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-[100] flex-col gap-4">
+            {/* Sticky Social Icons — all screen sizes, smaller on mobile */}
+            <div className="flex fixed right-2 md:right-6 top-1/2 -translate-y-1/2 z-[100] flex-col gap-2 md:gap-4">
                 {socialLinks.map((social) => (
                     <a
                         key={social.name}
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-900/80 border border-white/10 text-white/60 transition-all duration-300 hover:scale-110 hover:shadow-2xl ${social.hoverClass}`}
+                        className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg md:rounded-xl bg-zinc-900/80 border border-white/10 text-white/60 transition-all duration-300 hover:scale-110 hover:shadow-2xl [&>svg]:w-[18px] [&>svg]:h-[18px] md:[&>svg]:w-[22px] md:[&>svg]:h-[22px] ${social.hoverClass}`}
                     >
                         {social.icon}
                     </a>

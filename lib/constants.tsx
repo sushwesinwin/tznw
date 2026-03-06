@@ -23,6 +23,16 @@ export const socialLinks = [
         ),
     },
     {
+        name: "TikTok",
+        href: "https://www.tiktok.com/@thazin_nwe_win?lang=en",
+        hoverClass: "hover:bg-[#FE2C55] hover:border-[#FE2C55] hover:text-white",
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+            </svg>
+        ),
+    },
+    {
         name: "YouTube",
         href: "https://www.youtube.com/@thazinnwewin5263",
         hoverClass: "hover:bg-[#FF0000] hover:text-white",
