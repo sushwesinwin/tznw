@@ -69,10 +69,8 @@ export const socialLinks = [
         href: "https://en.wikipedia.org/wiki/Thazin_Nwe_Win",
         hoverClass: "hover:bg-[#636466] hover:text-white",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 640 512" fill="currentColor">
+                <path d="M640 51.2l-.3 12.2c-28.1.8-45 15.8-55.8 40.3-25 57.8-103.3 240-155.3 358.6H415l-81.9-221.5C325.4 262.2 322 254 320 254c-1.9 0-4.9 7.4-11.6 22.8l-80.3 214.8H214.6L44.8 102.3C35 79.1 19.3 64.1 0 63.4L.3 51.2h150.4v12.2c-22.3-.9-37 13.5-27.1 36.6 26.6 62.1 79.2 195.4 101.4 250.6l64-162.7-48.4-115.6c-13.6-32.5-31-41.2-53.1-41.2v-12.2h120v12.2c-15.3 0-25.2 6.8-17.7 25 15.7 38.6 42 105.1 57.3 145.4l55.9-152.2c-7-17.6-18.7-27.7-33.8-30.4v-12.2h161.4z" />
             </svg>
         ),
     },
@@ -110,5 +108,44 @@ export const navLinks = [
                 <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
         ),
+    },
+];
+
+export const televisionPrograms = [
+    {
+        title: "Khit Thit Pyo May -> Khin Pyo Madi",
+        period: "2012–present",
+    },
+    {
+        title: "Miss World Myanmar",
+        period: "2014-2018",
+    },
+    {
+        title: "MasterChef Myanmar",
+        period: "2019–present",
+    },
+    {
+        title: "Dancing with the Stars Myanmar",
+        period: "2019",
+    },
+    {
+        title: "Let's Go and Eat",
+        period: "2019–present",
+    },
+    {
+        title: "No Challenge No Change",
+        period: "2019–present",
+    },
+    {
+        title: "Make Me Beautiful",
+        period: "2019–present",
+    },
+    {
+        title: "Forever Group Myanmar Countdown",
+        period: "2019–present",
+    },
+    {
+        title: "The Beauty Studio",
+        period: "2019–present",
     },
 ];
