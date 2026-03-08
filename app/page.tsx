@@ -1,13 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TelevisionPrograms from "@/components/TelevisionPrograms";
+import About from "@/components/About";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
-      <TelevisionPrograms />
+      <About />
     </main>
   );
 }
