@@ -109,7 +109,24 @@ export default function Hero() {
                         </p>
                     </div>
 
+                    {/* ── Scroll Down Indicator ── */}
+                    <div className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 flex flex-col items-center gap-3 pointer-events-none">
+                        <span className="text-[10px] tracking-[0.4em] text-white/30 uppercase font-medium">Scroll</span>
+                        <div className="w-px h-12 bg-white/10 relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-full h-full bg-gold animate-scroll-down" />
+                        </div>
+                    </div>
+
                 </section>
+                <style>{`
+                    @keyframes scroll-down {
+                        0% { transform: translateY(-100%); }
+                        100% { transform: translateY(100%); }
+                    }
+                    .animate-scroll-down {
+                        animation: scroll-down 2s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+                    }
+                `}</style>
             </GlareHover>
 
             {/* Sticky Social Icons — all screen sizes, smaller on mobile */}
