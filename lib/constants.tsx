@@ -1,3 +1,16 @@
+export interface Stat {
+    value: string;
+    label: string;
+}
+
+export interface TelevisionProgram {
+    title: string;
+    period: string;
+    image: string;
+    url?: string;
+    objectPosition?: string;
+}
+
 export const socialLinks = [
     {
         name: "Facebook",
@@ -111,41 +124,61 @@ export const navLinks = [
     },
 ];
 
-export const televisionPrograms = [
+export const stats: Stat[] = [
+    { value: "15+", label: "Years on Screen" },
+    { value: "10+", label: "Shows Hosted" },
+    { value: "2014–18", label: "Miss World Myanmar MC" },
+    { value: "2020", label: "Film Debut" },
+];
+
+export const televisionPrograms: TelevisionProgram[] = [
     {
         title: "Khit Thit Pyo May -> Khin Pyo Madi",
-        period: "2012–present",
+        period: "Daily 10:15 AM | 2012–present",
+        image: "/tv/khit-thit-phyo-may.png",
+        url: "https://www.facebook.com/share/1B1DcNTc9H/"
     },
     {
         title: "Miss World Myanmar",
         period: "2014-2018",
+        image: "/tv/missworld-myanmar.jpg",
+        url: "https://www.facebook.com/share/1DwKYQq4KJ/"
     },
     {
         title: "MasterChef Myanmar",
-        period: "2019–present",
+        period: "2019",
+        image: "/tv/master-chef.png",
+        url: "https://www.facebook.com/share/1836ydVEyK/"
     },
     {
         title: "Dancing with the Stars Myanmar",
         period: "2019",
+        image: "/tv/dancing-w-start.jpg",
+        url: "https://www.facebook.com/DancingWithTheStarsMyanmar?mibextid=ZbWKwL",
     },
     {
-        title: "Let's Go and Eat",
-        period: "2019–present",
+        title: "Mhat Mhat Ya Ya!",
+        period: "2019",
+        image: "/tv/mhat-mhat-ya-ya.png",
+        url: "https://www.facebook.com/share/v/1CFWDbLh2n/"
     },
     {
         title: "No Challenge No Change",
-        period: "2019–present",
+        period: "2019",
+        image: "/tv/no-challange-no-change.png",
+        url: "https://www.facebook.com/share/v/1FzNAzD9TS/"
     },
     {
         title: "Make Me Beautiful",
-        period: "2019–present",
-    },
-    {
-        title: "Forever Group Myanmar Countdown",
-        period: "2019–present",
+        period: "2019",
+        image: "/tv/make-me-beautiful.png",
+        url: "https://www.facebook.com/share/v/1bDtNsfs52/"
     },
     {
         title: "The Beauty Studio",
-        period: "2019–present",
+        period: "2019",
+        image: "/tv/the-beauty-studio.jpg",
+        objectPosition: "top",
+        url: "https://www.facebook.com/share/1EPvF9nh3C/"
     },
 ];

@@ -1,6 +1,10 @@
 import Image from 'next/image';
-import GlareHover from './GlareHover';
-import { socialLinks } from '../lib/constants';
+import { socialLinks } from "@/lib/constants";
+import AnimatedContent from "../AnimatedContent";
+import BlurText from "../BlurText";
+import GlareHover from "../GlareHover";
+
+
 
 /**
  * Z-index layers (inside section stacking context):
@@ -69,32 +73,39 @@ export default function Hero() {
                     <div className="relative z-20 w-full flex items-end md:items-center min-h-[calc(100vh-4rem)] text-center md:text-left">
                         <div className="w-full max-w-4xl px-6 pb-12 md:px-14 md:py-10 mx-auto md:mx-0">
 
-                            <span className="block text-gold tracking-[0.3em] uppercase text-[10px] md:text-sm mb-3 md:mb-4">
-                                Professional Presenter &amp; Actress
-                            </span>
+                            <BlurText
+                                text="Professional Presenter & Actress"
+                                delay={100}
+                                animateBy="words"
+                                direction="top"
+                                className="block text-gold tracking-[0.3em] uppercase text-[10px] md:text-sm mb-3 md:mb-4 font-sans"
+                            />
 
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl mb-5 md:mb-8 leading-tight text-white font-serif">
-                                Elegance in <br />
-                                <span className="italic text-gold-light">Every Frame</span>
-                            </h1>
+                            <AnimatedContent direction="vertical" distance={40} delay={0.4}>
+                                <h1 className="text-4xl md:text-6xl lg:text-7xl mb-5 md:mb-8 leading-tight text-white font-serif">
+                                    Elegance in <br />
+                                    <span className="italic text-gold-light">Every Frame</span>
+                                </h1>
+                            </AnimatedContent>
 
-                            <p className="text-sm md:text-lg text-white/80 leading-relaxed mb-7 md:mb-10 max-w-xs md:max-w-xl mx-auto md:mx-0">
-                                Bringing authenticity and professional hosting to every project.
-                            </p>
+                            <AnimatedContent direction="vertical" distance={20} delay={0.8}>
+                                <p className="text-sm md:text-lg text-white/80 leading-relaxed mb-7 md:mb-10 max-w-xs md:max-w-xl mx-auto md:mx-0">
+                                    Bringing authenticity and professional hosting to every project.
+                                </p>
+                            </AnimatedContent>
 
-                            <div className="flex flex-row gap-3 md:gap-6 justify-center md:justify-start">
-                                <button className="bg-gold hover:bg-gold-light text-black px-6 md:px-10 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-widest transition-all whitespace-nowrap">
-                                    Inquire Now
-                                </button>
-                                <button className="border border-gold text-gold hover:bg-gold hover:text-black px-6 md:px-10 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-widest transition-all whitespace-nowrap">
-                                    See Work
-                                </button>
-                            </div>
+                            <AnimatedContent direction="vertical" distance={20} delay={1.0}>
+                                <div className="flex flex-row gap-3 md:gap-6 justify-center md:justify-start">
+                                    <button className="bg-gold hover:bg-gold-light text-black px-6 md:px-10 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-widest transition-all whitespace-nowrap">
+                                        Inquire Now
+                                    </button>
+                                </div>
+                            </AnimatedContent>
                         </div>
                     </div>
 
                     {/* ── Desktop name label — bottom-right, full opacity ── */}
-                    <div className="hidden md:block absolute bottom-28 right-30 z-20 text-right pointer-events-none">
+                    <AnimatedContent direction="vertical" distance={30} delay={1.4} className="hidden md:block absolute bottom-28 right-30 z-20 text-right pointer-events-none">
                         <p
                             className="font-serif uppercase text-white font-bold tracking-widest leading-none"
                             style={{ fontSize: 'clamp(2.2rem, 6vw, 9rem)' }}
@@ -107,7 +118,7 @@ export default function Hero() {
                         >
                             Nwe Win
                         </p>
-                    </div>
+                    </AnimatedContent>
 
                     {/* ── Scroll Down Indicator ── */}
                     <div className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 flex flex-col items-center gap-3 pointer-events-none">

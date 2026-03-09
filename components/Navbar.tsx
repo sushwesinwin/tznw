@@ -6,16 +6,16 @@ export default function Navbar() {
   return (
     <>
       {/* ─── Desktop full-width bar ─── */}
-      <nav className="hidden md:flex fixed top-0 left-0 w-full z-50 py-3 px-10 justify-between items-center glass">
-        <div className="text-gold font-serif text-2xl font-bold tracking-widest">
+      <nav className="hidden md:flex fixed top-0 left-0 w-full z-50 py-4 px-10 justify-between items-center glass border-b border-white/5">
+        <div className="text-white text-lg font-bold tracking-[0.2em]" style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}>
           TZNW
         </div>
-        <div className="flex gap-8 text-sm font-medium tracking-widest uppercase items-center">
+        <div className="flex gap-10 text-[11px] font-semibold tracking-[0.25em] uppercase items-center" style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}>
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-white/80 hover:text-gold transition-colors last:text-gold"
+              className="text-white/60 hover:text-gold transition-all duration-300 last:text-gold last:hover:text-gold-light"
             >
               {link.label}
             </a>
