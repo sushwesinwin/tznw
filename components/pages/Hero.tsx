@@ -1,10 +1,8 @@
-import Image from 'next/image';
+import Image from "next/image";
 import { socialLinks } from "@/lib/constants";
 import AnimatedContent from "../AnimatedContent";
 import BlurText from "../BlurText";
 import GlareHover from "../GlareHover";
-
-
 
 /**
  * Z-index layers (inside section stacking context):
@@ -29,27 +27,26 @@ export default function Hero() {
                 transitionDuration={800}
                 playOnce={false}
             >
-                <section className="relative flex flex-col justify-end min-h-screen w-full overflow-hidden md:pt-16">
-
+                <section className="relative flex min-h-screen w-full flex-col justify-end overflow-hidden md:pt-16">
                     {/* ── Mobile name watermark — BEHIND the subject image ── */}
                     {/* z-[1] < image z-[2], so it shows through the transparent PNG bg */}
-                    <div className="md:hidden absolute top-0 inset-x-0 z-[1] text-center pointer-events-none select-none pt-24">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 z-1 pt-24 text-center select-none md:hidden">
                         <p
-                            className="font-serif uppercase text-white/30 font-bold tracking-widest leading-none"
-                            style={{ fontSize: 'clamp(4rem, 22vw, 10rem)' }}
+                            className="font-serif leading-none font-bold tracking-widest text-white/30 uppercase"
+                            style={{ fontSize: "clamp(4rem, 22vw, 10rem)" }}
                         >
                             THAZIN
                         </p>
                         <p
-                            className="text-white/25 leading-none -mt-3"
-                            style={{ fontFamily: 'var(--font-great-vibes)', fontSize: 'clamp(3rem, 17vw, 8rem)' }}
+                            className="-mt-3 leading-none text-white/25"
+                            style={{ fontFamily: "var(--font-great-vibes)", fontSize: "clamp(3rem, 17vw, 8rem)" }}
                         >
                             Nwe Win
                         </p>
                     </div>
 
                     {/* ── Subject image — z-[2] paints over the name on opaque pixels ── */}
-                    <div className="absolute top-0 md:top-16 inset-x-0 bottom-0 z-[2]">
+                    <div className="absolute inset-x-0 top-0 bottom-0 z-2 md:top-16">
                         <Image
                             src="/hero-transparent.png"
                             alt="Professional Presenter Hero Background"
@@ -63,71 +60,78 @@ export default function Hero() {
 
                     {/* ── Gradient scrim — mobile only, text legibility ── */}
                     <div
-                        className="md:hidden absolute inset-x-0 bottom-0 h-[60%] z-10"
+                        className="absolute inset-x-0 bottom-0 z-10 h-[60%] md:hidden"
                         style={{
-                            background: 'linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.65) 55%, transparent 100%)',
+                            background:
+                                "linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.65) 55%, transparent 100%)",
                         }}
                     />
 
                     {/* ── Hero text content ── */}
-                    <div className="relative z-20 w-full flex items-end md:items-center min-h-[calc(100vh-4rem)] text-center md:text-left">
-                        <div className="w-full max-w-4xl px-6 pb-12 md:px-14 md:py-10 mx-auto md:mx-0">
-
+                    <div className="relative z-20 flex min-h-[calc(100vh-4rem)] w-full items-end text-center md:items-center md:text-left">
+                        <div className="mx-auto w-full max-w-4xl px-6 pb-12 md:mx-0 md:px-14 md:py-10">
                             <BlurText
                                 text="Professional Presenter & Actress"
                                 delay={100}
                                 animateBy="words"
                                 direction="top"
-                                className="block text-gold tracking-[0.3em] uppercase text-[10px] md:text-sm mb-3 md:mb-4 font-sans"
+                                className="text-gold mb-3 block font-sans text-[10px] tracking-[0.3em] uppercase md:mb-4 md:text-sm"
                             />
 
                             <AnimatedContent direction="vertical" distance={40} delay={0.4}>
-                                <h1 className="text-4xl md:text-6xl lg:text-7xl mb-5 md:mb-8 leading-tight text-white font-serif">
+                                <h1 className="mb-5 font-serif text-4xl leading-tight text-white md:mb-8 md:text-6xl lg:text-7xl">
                                     Elegance in <br />
-                                    <span className="italic text-gold-light">Every Frame</span>
+                                    <span className="text-gold-light italic">Every Frame</span>
                                 </h1>
                             </AnimatedContent>
 
                             <AnimatedContent direction="vertical" distance={20} delay={0.8}>
-                                <p className="text-sm md:text-lg text-white/80 leading-relaxed mb-7 md:mb-10 max-w-xs md:max-w-xl mx-auto md:mx-0">
+                                <p className="mx-auto mb-7 max-w-xs text-sm leading-relaxed text-white/80 md:mx-0 md:mb-10 md:max-w-xl md:text-lg">
                                     Bringing authenticity and professional hosting to every project.
                                 </p>
                             </AnimatedContent>
 
                             <AnimatedContent direction="vertical" distance={20} delay={1.0}>
-                                <div className="flex flex-row gap-3 md:gap-6 justify-center md:justify-start">
-                                    <button className="bg-gold hover:bg-gold-light text-black px-6 md:px-10 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-widest transition-all whitespace-nowrap">
+                                <div className="flex flex-row justify-center gap-3 md:justify-start md:gap-6">
+                                    <a
+                                        href="#bookings"
+                                        className="bg-gold hover:bg-gold-light px-6 py-3 text-xs font-bold tracking-widest whitespace-nowrap text-black uppercase transition-all md:px-10 md:py-4 md:text-sm"
+                                    >
                                         Inquire Now
-                                    </button>
+                                    </a>
                                 </div>
                             </AnimatedContent>
                         </div>
                     </div>
 
                     {/* ── Desktop name label — bottom-right, full opacity ── */}
-                    <AnimatedContent direction="vertical" distance={30} delay={1.4} className="hidden md:block absolute bottom-28 right-30 z-20 text-right pointer-events-none">
+                    <AnimatedContent
+                        direction="vertical"
+                        distance={30}
+                        delay={1.4}
+                        className="pointer-events-none absolute right-30 bottom-28 z-20 hidden text-right md:block"
+                    >
                         <p
-                            className="font-serif uppercase text-white font-bold tracking-widest leading-none"
-                            style={{ fontSize: 'clamp(2.2rem, 6vw, 9rem)' }}
+                            className="font-serif leading-none font-bold tracking-widest text-white uppercase"
+                            style={{ fontSize: "clamp(2.2rem, 6vw, 9rem)" }}
                         >
                             THAZIN
                         </p>
                         <p
-                            className="text-white/90 leading-none -mt-3"
-                            style={{ fontFamily: 'var(--font-great-vibes)', fontSize: 'clamp(1.8rem, 5vw, 7.5rem)' }}
+                            className="-mt-3 leading-none text-white/90"
+                            style={{ fontFamily: "var(--font-great-vibes)", fontSize: "clamp(1.8rem, 5vw, 7.5rem)" }}
                         >
                             Nwe Win
                         </p>
                     </AnimatedContent>
 
                     {/* ── Scroll Down Indicator ── */}
-                    <div className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 flex flex-col items-center gap-3 pointer-events-none">
-                        <span className="text-[10px] tracking-[0.4em] text-white/30 uppercase font-medium">Scroll</span>
-                        <div className="w-px h-12 bg-white/10 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-full bg-gold animate-scroll-down" />
+                    <div className="pointer-events-none absolute right-6 bottom-6 z-30 flex flex-col items-center gap-3 md:right-8 md:bottom-8">
+                        <span className="text-[10px] font-medium tracking-[0.4em] text-white/30 uppercase">Scroll</span>
+                        <div className="relative h-12 w-px overflow-hidden bg-white/10">
+                            <div className="bg-gold animate-scroll-down absolute top-0 left-0 h-full w-full" />
                         </div>
                     </div>
-
                 </section>
                 <style>{`
                     @keyframes scroll-down {
@@ -141,14 +145,14 @@ export default function Hero() {
             </GlareHover>
 
             {/* Sticky Social Icons — all screen sizes, smaller on mobile */}
-            <div className="flex fixed right-2 md:right-6 top-1/2 -translate-y-1/2 z-[100] flex-col gap-2 md:gap-4">
+            <div className="fixed top-1/2 right-2 z-100 flex -translate-y-1/2 flex-col gap-2 md:right-6 md:gap-4">
                 {socialLinks.map((social) => (
                     <a
                         key={social.name}
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg md:rounded-xl bg-zinc-900/80 border border-white/10 text-white/60 transition-all duration-300 hover:scale-110 hover:shadow-2xl [&>svg]:w-[18px] [&>svg]:h-[18px] md:[&>svg]:w-[22px] md:[&>svg]:h-[22px] ${social.hoverClass}`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-zinc-900/80 text-white/60 transition-all duration-300 hover:scale-110 hover:shadow-2xl md:h-12 md:w-12 md:rounded-xl [&>svg]:h-[18px] [&>svg]:w-[18px] md:[&>svg]:h-[22px] md:[&>svg]:w-[22px] ${social.hoverClass}`}
                     >
                         {social.icon}
                     </a>

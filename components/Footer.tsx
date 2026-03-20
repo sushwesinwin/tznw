@@ -1,111 +1,141 @@
 "use client";
 
-import { navLinks } from "@/lib/constants";
+import { navLinks, socialLinks } from "@/lib/constants";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
     return (
-        <footer className="border-gold/20 relative w-full border-t bg-black">
-            {/* Main Footer Content */}
-            <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16 lg:px-20">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
-                    {/* Brand Section */}
-                    <div className="lg:col-span-2">
-                        <h3 className="mb-4 font-serif text-2xl text-white md:text-3xl">Thazin Nwe Win</h3>
-                        <p className="mb-6 max-w-md text-sm leading-relaxed text-white/60">
-                            Television Presenter, Host, MC & Actress from Yangon, Myanmar. Bringing elegance and
-                            professionalism to every stage since 2011.
+        <footer className="relative w-full overflow-hidden bg-black pt-8 pb-4">
+            {/* Top Border with Gradient */}
+            <div className="via-gold/30 absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent to-transparent" />
+
+            <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+                    {/* Brand & Social Section */}
+                    <div className="lg:col-span-5">
+                        <h3 className="mb-2 font-serif text-3xl tracking-tight text-white md:text-4xl">
+                            Thazin Nwe Win
+                        </h3>
+                        <p className="mb-3 max-w-md text-base leading-relaxed text-zinc-400">
+                            Professional Television Presenter, Host, and MC based in Yangon, Myanmar. Bringing elegance,
+                            clarity, and professionalism to the screen since 2011.
                         </p>
+
+                        <div className="flex flex-wrap gap-3">
+                            {socialLinks
+                                .filter((social) => social.name !== "Wikipedia")
+                                .map((social) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition-all duration-300 ${social.hoverClass} hover:border-transparent`}
+                                        aria-label={social.name}
+                                    >
+                                        {social.icon}
+                                    </a>
+                                ))}
+                        </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-gold mb-4 text-sm font-semibold tracking-wider uppercase">Quick Links</h4>
-                        <ul className="space-y-3">
-                            {navLinks.map((link) => (
-                                <li key={link.label}>
+                    {/* Navigation Columns */}
+                    <div className="grid grid-cols-2 gap-8 lg:col-span-7 lg:grid-cols-3">
+                        {/* Explore */}
+                        <div>
+                            <h4 className="text-gold mb-2 text-[10px] font-bold tracking-[0.3em] uppercase">Explore</h4>
+                            <ul className="space-y-1">
+                                {navLinks.map((link) => (
+                                    <li key={link.label}>
+                                        <a
+                                            href={link.href}
+                                            className="group flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-white"
+                                        >
+                                            {link.label}
+                                            <ArrowUpRight className="h-3 w-3 translate-y-0.5 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100" />
+                                        </a>
+                                    </li>
+                                ))}
+                                <li>
                                     <a
-                                        href={link.href}
-                                        className="hover:text-gold flex items-center gap-2 text-sm text-white/60 transition-colors duration-300"
+                                        href="#photoshoot"
+                                        className="group flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-white"
                                     >
-                                        <span className="bg-gold/50 h-1 w-1 rounded-full" />
-                                        {link.label}
+                                        Photoshoot
+                                        <ArrowUpRight className="h-3 w-3 translate-y-0.5 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100" />
                                     </a>
                                 </li>
-                            ))}
-                            <li>
-                                <a
-                                    href="#photoshoot"
-                                    className="hover:text-gold flex items-center gap-2 text-sm text-white/60 transition-colors duration-300"
-                                >
-                                    <span className="bg-gold/50 h-1 w-1 rounded-full" />
-                                    Photoshoot
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
 
-                    {/* Contact Info */}
-                    <div>
-                        <h4 className="text-gold mb-4 text-sm font-semibold tracking-wider uppercase">Get in Touch</h4>
-                        <ul className="space-y-3">
-                            <li>
-                                <a
-                                    href="#bookings"
-                                    className="hover:text-gold block text-sm text-white/60 transition-colors duration-300"
-                                >
-                                    Book an Appearance
-                                </a>
-                            </li>
-                            <li>
+                        {/* Engagement */}
+                        <div>
+                            <h4 className="text-gold mb-2 text-[10px] font-bold tracking-[0.3em] uppercase">
+                                Engagement
+                            </h4>
+                            <ul className="space-y-1">
+                                <li>
+                                    <a
+                                        href="#bookings"
+                                        className="text-sm text-zinc-400 transition-colors hover:text-white"
+                                    >
+                                        Book an Appearance
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/terms-and-conditions"
+                                        className="text-sm text-zinc-400 transition-colors hover:text-white"
+                                    >
+                                        Booking Guidelines
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Direct DM */}
+                        <div className="col-span-2 md:col-span-1">
+                            <h4 className="text-gold mb-2 text-[10px] font-bold tracking-[0.3em] uppercase">
+                                Quick Reach
+                            </h4>
+                            <div className="space-y-3">
+                                <p className="text-xs leading-relaxed text-zinc-500">
+                                    Direct inquiries via social media for faster response.
+                                </p>
                                 <a
                                     href="https://www.facebook.com/thazinnwewinofficial"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-gold block text-sm text-white/60 transition-colors duration-300"
+                                    className="bg-gold/10 hover:bg-gold text-gold inline-flex h-9 items-center rounded-full px-5 text-xs font-bold transition-all hover:text-black"
                                 >
-                                    Message on Facebook
+                                    Message Us
                                 </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://www.instagram.com/thazin_nwe_win"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-gold block text-sm text-white/60 transition-colors duration-300"
-                                >
-                                    DM on Instagram
-                                </a>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Bottom Bar */}
-            <div className="border-t border-white/10">
-                <div className="mx-auto max-w-7xl px-6 py-6 md:px-12 lg:px-20">
-                    <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-                        <p className="text-center text-xs text-white/40 md:text-left md:text-sm">
-                            © {new Date().getFullYear()} Thazin Nwe Win. All rights reserved.
-                        </p>
-                        <div className="flex items-center gap-6">
-                            <a
-                                href="https://en.wikipedia.org/wiki/Thazin_Nwe_Win"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:text-gold text-xs text-white/40 transition-colors duration-300 md:text-sm"
-                            >
-                                Wikipedia
-                            </a>
-                            <span className="text-white/20">•</span>
-                            <p className="text-xs text-white/40 md:text-sm">Made with ❤️ in Myanmar</p>
+                {/* Huge Signature Typography */}
+                <div className="pointer-events-none mt-2 overflow-hidden opacity-[0.03] select-none">
+                    <h2 className="font-serif text-[12vw] leading-none font-bold tracking-tighter whitespace-nowrap text-white uppercase">
+                        THAZIN NWE WIN • THAZIN NWE WIN • THAZIN NWE WIN
+                    </h2>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="mt-2 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-2 md:flex-row">
+                    <p className="text-xs text-zinc-500">© {currentYear} Thazin Nwe Win. All rights reserved.</p>
+
+                    <div className="flex items-center gap-8">
+                        <div className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                            <span className="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">
+                                Available for Bookings
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* Decorative gradient at bottom */}
-            <div className="via-gold/30 absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
         </footer>
     );
 }

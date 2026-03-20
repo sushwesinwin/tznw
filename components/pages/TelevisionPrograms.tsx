@@ -50,7 +50,7 @@ export default function TelevisionPrograms() {
         if (!isPaused) {
             const interval = setInterval(() => {
                 setCurrentIndex((prev) => (prev + 1) % totalSlides);
-            }, 5000);
+            }, 3500);
             return () => clearInterval(interval);
         }
     }, [isPaused, totalSlides]);
@@ -116,7 +116,7 @@ export default function TelevisionPrograms() {
                     {/* Carousel Track */}
                     <div className="overflow-hidden px-12">
                         <div
-                            className="flex gap-5 transition-transform duration-700 ease-out"
+                            className="cubic-bezier(0.16, 1, 0.3, 1) flex gap-5 transition-transform duration-1000"
                             style={{
                                 transform: `translateX(-${currentIndex * 100}%)`,
                             }}

@@ -2,7 +2,8 @@
 
 import AnimatedContent from "../AnimatedContent";
 import BlurText from "../BlurText";
-import { Mail, Phone, Star, Users, Mic, Award } from "lucide-react";
+import GlareHover from "../GlareHover";
+import { Mail, Phone, Star, Users, Mic, Award, ExternalLink, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -32,7 +33,6 @@ const services = [
 const eventImages = [
     { id: 1, src: "/events/v1.jpg", alt: "Event hosting 1" },
     { id: 2, src: "/events/v2.jpg", alt: "Event hosting 2" },
-    { id: 3, src: "/events/v3.jpg", alt: "Event hosting 3" },
     { id: 4, src: "/events/v4.jpg", alt: "Event hosting 4" },
     { id: 5, src: "/events/v5.jpg", alt: "Event hosting 5" },
     { id: 6, src: "/events/v6.jpg", alt: "Event hosting 6" },
@@ -45,11 +45,6 @@ const eventImages = [
 export default function Bookings() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
-
-    // For this compact version, we'll show one image at a time but centered
-    const itemsPerSlide = 1;
-
-    // itemsPerSlide is now constant 1
 
     const totalSlides = eventImages.length;
 
@@ -66,45 +61,52 @@ export default function Bookings() {
             return () => clearInterval(interval);
         }
     }, [isPaused, totalSlides]);
+
     return (
-        <section
-            id="bookings"
-            className="via-onyx relative w-full overflow-hidden bg-linear-to-b from-black to-black py-24 md:py-36"
-        >
+        <section id="bookings" className="relative w-full overflow-hidden bg-black py-24 md:py-40">
+            {/* Background Decorative Elements */}
+            <div className="pointer-events-none absolute inset-0 z-0">
+                <div className="from-gold/5 absolute top-0 left-0 h-[500px] w-full bg-linear-to-b to-transparent opacity-50" />
+                <div className="bg-gold/5 absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
+                <div className="absolute top-[20%] right-[-10%] h-[400px] w-[400px] rounded-full bg-zinc-800/20 blur-[80px]" />
+            </div>
+
             {/* Background Watermark */}
-            <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] select-none">
+            <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] select-none">
                 <p
-                    className="font-serif leading-none font-bold tracking-[0.3em] whitespace-nowrap text-white uppercase"
-                    style={{ fontSize: "20vw" }}
+                    className="font-serif leading-none font-bold tracking-[0.2em] whitespace-nowrap text-white uppercase"
+                    style={{ fontSize: "22vw" }}
                 >
-                    BOOKINGS
+                    CONTACT
                 </p>
             </div>
 
             <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
                 {/* Section Header */}
-                <div className="mb-10 flex max-w-3xl flex-col md:mb-14">
-                    <div className="mb-3 flex items-center gap-4">
+                <div className="mb-16 flex flex-col items-center text-center">
+                    <div className="mb-4 flex items-center justify-center gap-4">
+                        <div className="bg-gold/40 h-px w-8 md:w-16" />
                         <BlurText
                             text="Professional Services"
                             delay={100}
                             animateBy="words"
                             direction="top"
-                            className="text-gold font-sans text-[9px] font-bold tracking-[0.5em] whitespace-nowrap uppercase md:text-[10px]"
+                            className="text-gold font-sans text-[10px] font-bold tracking-[0.6em] whitespace-nowrap uppercase md:text-[11px]"
                         />
-                        <div className="bg-gold/20 hidden h-px flex-1 md:block" />
+                        <div className="bg-gold/40 h-px w-8 md:w-16" />
                     </div>
                     <BlurText
                         text="BOOK AN APPEARANCE"
                         delay={150}
                         animateBy="words"
                         direction="top"
-                        className="font-serif text-3xl leading-none tracking-tight text-white uppercase md:text-4xl lg:text-5xl"
+                        className="font-serif text-4xl leading-tight tracking-tight text-white uppercase md:text-5xl lg:text-7xl"
                     />
+                    <div className="bg-gold mt-6 h-1 w-20 rounded-full" />
                 </div>
 
-                {/* Row 1: 4 Services — full width */}
-                <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mb-16 md:gap-6 lg:grid-cols-4">
+                {/* Service Cards with GlareHover */}
+                <div className="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {services.map((service, index) => (
                         <AnimatedContent
                             key={service.title}
@@ -112,181 +114,192 @@ export default function Bookings() {
                             distance={40}
                             delay={0.2 + index * 0.1}
                         >
-                            <div className="group hover:border-gold/40 relative rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm transition-all duration-500 hover:scale-105 md:p-6">
-                                <div className="text-gold mb-3 transform transition-transform duration-500 group-hover:scale-110">
-                                    {service.icon}
+                            <GlareHover
+                                width="100%"
+                                height="100%"
+                                background="rgba(24, 24, 27, 0.4)"
+                                borderRadius="20px"
+                                borderColor="rgba(212, 175, 55, 0.1)"
+                                glareColor="#D4AF37"
+                                glareOpacity={0.15}
+                                className="h-full"
+                            >
+                                <div className="group relative h-full p-8 transition-all duration-500">
+                                    <div className="text-gold bg-gold/10 group-hover:bg-gold/20 mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-500 group-hover:scale-110">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="group-hover:text-gold mb-3 font-serif text-xl tracking-tight text-white transition-colors duration-300">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-sm leading-relaxed text-zinc-400">{service.description}</p>
+                                    <div className="from-gold/0 via-gold/50 to-gold/0 absolute bottom-0 left-0 h-[2px] w-0 bg-linear-to-r transition-all duration-700 group-hover:w-full" />
                                 </div>
-                                <h3 className="group-hover:text-gold mb-2 font-serif text-base text-white transition-colors duration-300 md:text-lg">
-                                    {service.title}
-                                </h3>
-                                <p className="text-xs leading-relaxed text-white/60 md:text-sm">
-                                    {service.description}
-                                </p>
-                                <div className="via-gold/0 group-hover:via-gold/60 absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent to-transparent transition-all duration-500" />
-                            </div>
+                            </GlareHover>
                         </AnimatedContent>
                     ))}
                 </div>
 
-                {/* Row 2: Let's Work Together (left) + Image Slider (right) */}
-                <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
-                    {/* Left: Contact */}
-                    <AnimatedContent direction="vertical" distance={40} delay={0.5}>
-                        <div className="rounded-2xl border border-white/10 bg-zinc-900/30 p-6 backdrop-blur-sm md:p-8">
-                            <h3 className="mb-3 font-serif text-2xl text-white md:text-3xl">
-                                Let&apos;s Work Together
-                            </h3>
-                            <p className="mb-8 text-sm leading-relaxed text-white/60">
-                                Ready to make your event unforgettable? Get in touch to discuss availability and
-                                requirements.
-                            </p>
+                {/* Main Content: Contact & Portfolio */}
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+                    {/* Left: Contact Details (Column 1-5) */}
+                    <div className="lg:col-span-5">
+                        <AnimatedContent direction="horizontal" distance={-40} delay={0.5}>
+                            <div className="rounded-3xl border border-white/5 bg-zinc-900/20 p-8 backdrop-blur-xl md:p-10">
+                                <h3 className="mb-4 font-serif text-3xl text-white">Let&apos;s Work Together</h3>
+                                <p className="mb-10 text-base leading-relaxed text-zinc-400">
+                                    Ready to make your event unforgettable? Get in touch to discuss availability and
+                                    bespoke requirements for your next project.
+                                </p>
 
-                            <div className="mb-8 space-y-4">
-                                <div className="hover:border-gold/30 flex items-center gap-4 rounded-xl border border-white/5 bg-black/20 p-4 transition-colors">
-                                    <Mail className="text-gold h-5 w-5 shrink-0" />
-                                    <div>
-                                        <p className="mb-0.5 text-[10px] tracking-wider text-white/50 uppercase">
-                                            Email
-                                        </p>
-                                        <a
-                                            href="mailto:contact@thazinnwewin.com"
-                                            className="hover:text-gold text-sm font-medium text-white transition-colors"
-                                        >
-                                            contact@thazinnwewin.com
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="hover:border-gold/30 flex items-center gap-4 rounded-xl border border-white/5 bg-black/20 p-4 transition-colors">
-                                    <Phone className="text-gold h-5 w-5 shrink-0" />
-                                    <div>
-                                        <p className="mb-0.5 text-[10px] tracking-wider text-white/50 uppercase">
-                                            Phone
-                                        </p>
-                                        <a
-                                            href="tel:+959771044732"
-                                            className="hover:text-gold text-sm font-medium text-white transition-colors"
-                                        >
-                                            +95 9 771 044 732
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                <div className="space-y-6">
+                                    <a
+                                        href="mailto:contact@thazinnwewin.com"
+                                        className="group hover:border-gold/30 flex items-center gap-5 rounded-2xl border border-white/5 bg-black/40 p-5 transition-all duration-300 hover:translate-x-1"
+                                    >
+                                        <div className="bg-gold/10 group-hover:bg-gold text-gold flex h-12 w-12 items-center justify-center rounded-full transition-colors group-hover:text-black">
+                                            <Mail className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+                                                Email Address
+                                            </p>
+                                            <p className="group-hover:text-gold text-sm font-medium text-white transition-colors md:text-base">
+                                                contact@thazinnwewin.com
+                                            </p>
+                                        </div>
+                                    </a>
 
-                            <div className="bg-gold/5 border-gold/20 flex items-start gap-3 rounded-xl border p-4">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="18"
-                                    height="18"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="text-gold mt-0.5 shrink-0"
-                                >
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 16v-4" />
-                                    <path d="M12 8h.01" />
-                                </svg>
-                                <div>
-                                    <h4 className="text-gold mb-1 text-xs font-semibold">Booking Guidelines</h4>
-                                    <p className="mb-2 text-xs leading-relaxed text-white/50">
-                                        Review policies and timelines before reaching out.
+                                    <a
+                                        href="tel:+959771044732"
+                                        className="group hover:border-gold/30 flex items-center gap-5 rounded-2xl border border-white/5 bg-black/40 p-5 transition-all duration-300 hover:translate-x-1"
+                                    >
+                                        <div className="bg-gold/10 group-hover:bg-gold text-gold flex h-12 w-12 items-center justify-center rounded-full transition-colors group-hover:text-black">
+                                            <Phone className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+                                                Phone Number
+                                            </p>
+                                            <p className="group-hover:text-gold text-sm font-medium text-white transition-colors md:text-base">
+                                                +95 9 771 044 732
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div className="bg-gold/5 border-gold/10 mt-10 rounded-2xl border p-6">
+                                    <div className="mb-4 flex items-center gap-3">
+                                        <ShieldCheck className="text-gold h-5 w-5" />
+                                        <h4 className="text-sm font-bold tracking-wide text-white uppercase">
+                                            Booking Guidelines
+                                        </h4>
+                                    </div>
+                                    <p className="mb-4 text-sm leading-relaxed text-zinc-400">
+                                        Please review our guidelines regarding travel, accommodation, and professional
+                                        protocols.
                                     </p>
                                     <a
                                         href="/terms-and-conditions"
-                                        className="text-gold inline-flex items-center gap-1.5 text-xs font-medium transition-colors hover:text-white"
+                                        className="text-gold inline-flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
                                     >
                                         View Guidelines
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="11"
-                                            height="11"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <path d="M5 12h14" />
-                                            <path d="m12 5 7 7-7 7" />
-                                        </svg>
+                                        <ExternalLink className="h-3.5 w-3.5" />
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                    </AnimatedContent>
+                        </AnimatedContent>
+                    </div>
 
-                    {/* Right: Image Slider */}
-                    <AnimatedContent direction="vertical" distance={40} delay={0.6}>
-                        <div className="flex flex-col">
-                            <div className="mb-4 flex flex-col">
-                                <h3 className="mb-1 font-serif text-lg tracking-wider text-white uppercase md:text-xl">
-                                    Past Appearances
-                                </h3>
-                                <p className="text-[10px] text-white/40 md:text-xs">Portfolio Highlights</p>
-                            </div>
+                    {/* Right: Portfolio Highlights (Column 6-12) */}
+                    <div className="lg:col-span-7">
+                        <AnimatedContent direction="horizontal" distance={40} delay={0.6}>
+                            <div className="flex h-full flex-col">
+                                <div className="mb-6 flex items-end justify-between">
+                                    <div>
+                                        <h3 className="mb-1 font-serif text-2xl tracking-tight text-white uppercase">
+                                            Past Appearances
+                                        </h3>
+                                        <div className="bg-gold h-0.5 w-12" />
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <span className="text-[10px] font-medium tracking-widest text-zinc-500 uppercase">
+                                            {String(currentIndex + 1).padStart(2, "0")} /{" "}
+                                            {String(totalSlides).padStart(2, "0")}
+                                        </span>
+                                    </div>
+                                </div>
 
-                            <div
-                                className="relative"
-                                onMouseEnter={() => setIsPaused(true)}
-                                onMouseLeave={() => setIsPaused(false)}
-                            >
-                                <div className="overflow-hidden rounded-xl border border-white/10 shadow-lg">
-                                    <div
-                                        className="flex transition-transform duration-700 ease-in-out"
-                                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                                    >
-                                        {eventImages.map((image) => (
-                                            <div key={image.id} className="w-full shrink-0">
-                                                <div className="relative flex h-[240px] w-full items-center justify-center bg-black/40 md:h-[340px]">
+                                <div
+                                    className="group relative flex-1 overflow-hidden"
+                                    onMouseEnter={() => setIsPaused(true)}
+                                    onMouseLeave={() => setIsPaused(false)}
+                                >
+                                    <div className="relative aspect-16/10 w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                                        <div
+                                            className="cubic-bezier(0.16, 1, 0.3, 1) flex h-full transition-transform duration-1000"
+                                            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                                        >
+                                            {eventImages.map((image) => (
+                                                <div
+                                                    key={image.id}
+                                                    className="relative h-full w-full shrink-0 bg-zinc-950/60"
+                                                >
                                                     <Image
                                                         src={image.src}
                                                         alt={image.alt}
                                                         fill
-                                                        className="object-contain"
-                                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                                        priority={image.id === 1}
+                                                        className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                                                        sizes="(max-width: 768px) 100vw, 60vw"
                                                     />
+                                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                                                    <div className="absolute bottom-6 left-8 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                                                        <p className="text-gold text-[10px] font-bold tracking-[0.3em] uppercase">
+                                                            Event Highlights
+                                                        </p>
+                                                        <p className="font-serif text-lg text-white">
+                                                            Professional Appearance
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Navigation Dots */}
+                                    <div className="mt-8 flex items-center justify-center gap-2">
+                                        {eventImages.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => setCurrentIndex(index)}
+                                                className={`h-1 cursor-pointer transition-all duration-500 ${
+                                                    index === currentIndex
+                                                        ? "bg-gold w-12"
+                                                        : "w-4 bg-zinc-800 hover:bg-zinc-600"
+                                                }`}
+                                                aria-label={`Go to slide ${index + 1}`}
+                                            />
                                         ))}
                                     </div>
                                 </div>
-
-                                <div className="mt-4 flex items-center justify-center gap-1.5">
-                                    {eventImages.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => setCurrentIndex(index)}
-                                            className={`h-1 rounded-full transition-all duration-300 ${
-                                                index === currentIndex
-                                                    ? "bg-gold w-8"
-                                                    : "w-1.5 bg-white/20 hover:bg-white/40"
-                                            }`}
-                                            aria-label={`Go to slide ${index + 1}`}
-                                        />
-                                    ))}
-                                </div>
                             </div>
-                        </div>
-                    </AnimatedContent>
+                        </AnimatedContent>
+                    </div>
                 </div>
 
-                {/* Bottom Note */}
+                {/* Bottom Footer Note */}
                 <AnimatedContent direction="vertical" distance={20} delay={0.8}>
-                    <div className="mt-12 text-center">
-                        <p className="mx-auto max-w-2xl text-xs text-white/40 md:text-sm">
-                            Based in Yangon, Myanmar. Available for national and international engagements. Corporate
-                            rates and packages available upon request.
-                        </p>
+                    <div className="mt-20 border-t border-white/5 pt-12 text-center">
+                        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4">
+                            <p className="text-xs leading-relaxed tracking-wide text-zinc-500 md:text-sm">
+                                Based in Yangon, Myanmar. Available for national and international engagements.
+                                Corporate rates and bespoke packages available upon request.
+                            </p>
+                            <div className="via-gold/20 flex h-px w-32 bg-linear-to-r from-transparent to-transparent" />
+                        </div>
                     </div>
                 </AnimatedContent>
             </div>
-
-            {/* Decorative divider */}
-            <div className="via-gold/20 absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent to-transparent" />
         </section>
     );
 }
