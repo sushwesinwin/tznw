@@ -18,7 +18,17 @@ export const socialLinks = [
         brandColor: "hex-#1877F2",
         hoverClass: "hover:bg-[#1877F2] hover:text-white",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
             </svg>
         ),
@@ -28,7 +38,17 @@ export const socialLinks = [
         href: "https://www.instagram.com/thazin_nwe_win?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         hoverClass: "hover:bg-[#E4405F] hover:text-white",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -40,7 +60,17 @@ export const socialLinks = [
         href: "https://www.tiktok.com/@thazin_nwe_win?lang=en",
         hoverClass: "hover:bg-[#FE2C55] hover:border-[#FE2C55] hover:text-white",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
             </svg>
         ),
@@ -50,7 +80,17 @@ export const socialLinks = [
         href: "https://www.youtube.com/@thazinnwewin5263",
         hoverClass: "hover:bg-[#FF0000] hover:text-white",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 103.44 103.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 103.44 103.44 0 0 1-15 0 2 2 0 0 1-2-2Z" />
                 <path d="m10 15 5-3-5-3z" />
             </svg>
@@ -82,8 +122,20 @@ export const socialLinks = [
         href: "https://en.wikipedia.org/wiki/Thazin_Nwe_Win",
         hoverClass: "hover:bg-[#636466] hover:text-white",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 640 512" fill="currentColor">
-                <path d="M640 51.2l-.3 12.2c-28.1.8-45 15.8-55.8 40.3-25 57.8-103.3 240-155.3 358.6H415l-81.9-221.5C325.4 262.2 322 254 320 254c-1.9 0-4.9 7.4-11.6 22.8l-80.3 214.8H214.6L44.8 102.3C35 79.1 19.3 64.1 0 63.4L.3 51.2h150.4v12.2c-22.3-.9-37 13.5-27.1 36.6 26.6 62.1 79.2 195.4 101.4 250.6l64-162.7-48.4-115.6c-13.6-32.5-31-41.2-53.1-41.2v-12.2h120v12.2c-15.3 0-25.2 6.8-17.7 25 15.7 38.6 42 105.1 57.3 145.4l55.9-152.2c-7-17.6-18.7-27.7-33.8-30.4v-12.2h161.4z" />
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
             </svg>
         ),
     },
@@ -94,7 +146,17 @@ export const navLinks = [
         label: "About",
         href: "#about",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
             </svg>
@@ -104,7 +166,17 @@ export const navLinks = [
         label: "Portfolio",
         href: "#portfolio",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <rect x="2" y="3" width="20" height="14" rx="2" />
                 <path d="M8 21h8M12 17v4" />
             </svg>
@@ -114,7 +186,17 @@ export const navLinks = [
         label: "Bookings",
         href: "#bookings",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
                 <rect x="3" y="4" width="18" height="18" rx="2" />
                 <line x1="16" y1="2" x2="16" y2="6" />
                 <line x1="8" y1="2" x2="8" y2="6" />
@@ -136,19 +218,19 @@ export const televisionPrograms: TelevisionProgram[] = [
         title: "Khit Thit Pyo May -> Khin Pyo Madi",
         period: "Daily 10:15 AM | 2012–present",
         image: "/tv/khit-thit-phyo-may.png",
-        url: "https://www.facebook.com/share/1B1DcNTc9H/"
+        url: "https://www.facebook.com/share/1B1DcNTc9H/",
     },
     {
         title: "Miss World Myanmar",
         period: "2014-2018",
         image: "/tv/missworld-myanmar.jpg",
-        url: "https://www.facebook.com/share/1DwKYQq4KJ/"
+        url: "https://www.facebook.com/share/1DwKYQq4KJ/",
     },
     {
         title: "MasterChef Myanmar",
         period: "2019",
         image: "/tv/master-chef.png",
-        url: "https://www.facebook.com/share/1836ydVEyK/"
+        url: "https://www.facebook.com/share/1836ydVEyK/",
     },
     {
         title: "Dancing with the Stars Myanmar",
@@ -160,25 +242,26 @@ export const televisionPrograms: TelevisionProgram[] = [
         title: "Mhat Mhat Ya Ya!",
         period: "2019",
         image: "/tv/mhat-mhat-ya-ya.png",
-        url: "https://www.facebook.com/share/v/1CFWDbLh2n/"
+        url: "https://www.facebook.com/share/v/1CFWDbLh2n/",
     },
     {
         title: "No Challenge No Change",
         period: "2019",
         image: "/tv/no-challange-no-change.png",
-        url: "https://www.facebook.com/share/v/1FzNAzD9TS/"
+        url: "https://www.facebook.com/share/v/1FzNAzD9TS/",
     },
     {
         title: "Make Me Beautiful",
         period: "2019",
         image: "/tv/make-me-beautiful.png",
-        url: "https://www.facebook.com/share/v/1bDtNsfs52/"
+        objectPosition: "top",
+        url: "https://www.facebook.com/share/v/1bDtNsfs52/",
     },
     {
         title: "The Beauty Studio",
         period: "2019",
         image: "/tv/the-beauty-studio.jpg",
-        objectPosition: "top",
-        url: "https://www.facebook.com/share/1EPvF9nh3C/"
+        objectPosition: "center 15%",
+        url: "https://www.facebook.com/share/1EPvF9nh3C/",
     },
 ];
