@@ -4,8 +4,6 @@ import { navLinks, socialLinks } from "@/lib/constants";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
-
     return (
         <footer className="relative w-full overflow-hidden bg-black pt-8 pb-4">
             {/* Top Border with Gradient */}
@@ -124,7 +122,18 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="mt-2 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-2 md:flex-row">
-                    <p className="text-xs text-zinc-500">© {currentYear} Thazin Nwe Win. All rights reserved.</p>
+                    <p className="text-xs text-zinc-500">
+                        Built by SU SHWE SIN WIN. The source code is available on{" "}
+                        <a
+                            href="https://github.com/sushwesinwin/tznw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-colors hover:text-white"
+                        >
+                            GitHub
+                        </a>
+                        .
+                    </p>
 
                     <div className="flex items-center gap-8">
                         <div className="flex items-center gap-2">
