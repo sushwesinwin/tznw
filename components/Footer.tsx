@@ -128,7 +128,7 @@ export default function Footer() {
                             href="https://github.com/sushwesinwin/tznw"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="transition-colors hover:text-white"
+                            className="text-sky-400 transition-colors hover:text-white"
                         >
                             GitHub
                         </a>
